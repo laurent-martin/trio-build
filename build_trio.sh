@@ -108,14 +108,14 @@ linknx_add_deb_pkg_info(){
 	echo '3.0 (quilt)' > source/format
 	touch copyright
 	echo 10 > compat
-	cat<<EOF>changelog
+	cat>changelog<<EOF
 linknx (0.0.1.36-1) UNRELEASED; urgency=medium
 
   * Initial release. (Closes: #XXXXXX)
 
  --  <pi@raspberrypi>  Tue, 17 Apr 2018 22:18:24 +0000
 EOF
-	cat<<EOF>rules
+	cat>rules<<EOF
 #!/usr/bin/make -f
 %:
 	dh \$@
@@ -125,7 +125,7 @@ override_dh_auto_install:
 	\$(MAKE) DESTDIR=${install_destdir} prefix=${install_prefix} install
 EOF
 	chmod a+x rules
-	cat<<EOF>control
+	cat>control<<EOF
 Source: linknx
 Maintainer: Todo <todo@todo.todo>
 Section: misc
@@ -139,7 +139,7 @@ Depends: ${shlibs:Depends}, ${misc:Depends}, libpthsem20
 Description: knx automation
  linknx
 EOF
-	cat<<EOF>changelog
+	cat>changelog<<EOF
 linknx (0.0.1.36-1) UNRELEASED; urgency=medium
 
   * Initial release. (Closes: #XXXXXX)
@@ -149,7 +149,7 @@ EOF
 	mkdir -p ${linknx_conf}
 	cp ../conf/linknx.xml ${linknx_conf}
  	mkdir -p ${systemd_conf}
-	cat<<EOF>${systemd_conf}/linknx.service
+	cat>${systemd_conf}/linknx.service<<EOF
 [Unit]
 Description=Linknx Server
 After=knxd.service
@@ -219,20 +219,20 @@ knxweb_add_deb_pkg_info(){
 	echo '3.0 (quilt)' > source/format
 	touch copyright
 	echo 10 > compat
-	cat<<EOF>changelog
+	cat>changelog<<EOF
 ${pkgname} (${pkgvers}) UNRELEASED; urgency=medium
 
   * Initial release. (Closes: #XXXXXX)
 
  --  <pi@raspberrypi>  Tue, 17 Apr 2018 22:18:24 +0000
 EOF
-	cat<<EOF>rules
+	cat>rules<<EOF
 #!/usr/bin/make -f
 %:
 	dh \$@
 EOF
 	chmod a+x rules
-	cat<<EOF>control
+	cat>control<<EOF
 Source: ${pkgname}
 Maintainer: Todo <todo@todo.todo>
 Section: misc
@@ -247,7 +247,7 @@ Depends: ${shlibs:Depends}, ${misc:Depends}
 Description: knx automation
  ${pkgname}
 EOF
-	cat<<EOF>changelog
+	cat>changelog<<EOF
 ${pkgname} (${pkgvers}) UNRELEASED; urgency=medium
 
   * Initial release. (Closes: #XXXXXX)
@@ -255,7 +255,7 @@ ${pkgname} (${pkgvers}) UNRELEASED; urgency=medium
  --  <pi@raspberrypi>  Tue, 17 Apr 2018 22:18:24 +0000
 EOF
 	popd # out of debian
-	cat<<EOF>Makefile
+	cat>Makefile<<EOF
 all:
 	echo MAKE ALL
 INSTROOT=\$(DESTDIR)${install_root}
@@ -304,7 +304,7 @@ esac
 exit 0
 
 # sudo apt-get install apache2
-cat<<EOF>/etc/apache2/sites-available/001-knxweb.conf
+cat>/etc/apache2/sites-available/001-knxweb.conf<<EOF
 xxx
 EOF
 
