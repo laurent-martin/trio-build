@@ -283,7 +283,7 @@ install_all(){
 	linknx_install
 	knxd_install
 	knxweb_install
-	install_packages apache2 php libapache2-mod-php php7.2-xml
+	install_packages apache2 php libapache2-mod-php php-xml
 	# sudo a2ensite 050-knxweb
 	# sudo a2dissite 000-default
 	# sudo systemctl reload apache2
