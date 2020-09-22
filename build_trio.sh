@@ -272,7 +272,7 @@ all:
 INSTROOT=\$(DESTDIR)${install_root}
 install:
 	mkdir -p \$(INSTROOT)
-	mv *.php favicon.* css images js include lang lib objectUpdater.jar robots.txt htaccess* pictures widgets template \$(INSTROOT)
+	mv *.php favicon.* css images js include lang lib objectUpdater.jar robots.txt htaccess* pictures widgets template version \$(INSTROOT)
 	mv design plugins \$(INSTROOT)
 	chown -R www-data: \$(INSTROOT)
 EOF
